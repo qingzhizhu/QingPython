@@ -1,3 +1,7 @@
+#!/usr/bin/python
+#coding=utf-8
+#desc:turtle graphic 画图
+#author:gengkun123@gmail.com
 import turtle
 
 def draw_square(_turtle):
