@@ -1,3 +1,7 @@
+#!/usr/bin/python
+#coding=utf-8
+#desc:电影html模板
+#author:gengkun123@gmail.com
 import webbrowser
 import os
 import re

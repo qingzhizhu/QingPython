@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #coding=utf-8
-#desc:....
+#desc:电影demo class
 #author:gengkun123@gmail.com
 
 import webbrowser
