@@ -10,7 +10,7 @@ from PIL import Image
 
 DIR=os.getcwd()
 
-DIR_WORK="/Users/kevin/elex/cod/cod_project2/Client/Unity/Assets/CustomAssets/Arts"
+DIR_WORK="~/Arts"
 
 #50MB
 MAXSIZE=52428800
