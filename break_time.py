@@ -1,3 +1,8 @@
+#!/usr/bin/python
+#coding=utf-8
+#desc: 休息一下，打开舒适音乐
+#author:gengkun123@gmail.com
+
 import webbrowser
 import time 
 
