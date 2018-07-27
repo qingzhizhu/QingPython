@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #coding=utf-8
-#desc:检查是否有脏话, python2
+#desc:检查是否有脏话, python2 
 #author:gengkun123@gmail.com
 
 import os,sys
