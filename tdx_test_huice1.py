@@ -77,6 +77,38 @@ class SMAStrategy(bt.Strategy):
             if self.crossover < 0:
                 self.sell()  # 死叉卖出
 
+
+# ----------------------
+# 3. 定义 MACD 金叉策略
+# ----------------------
+class MACDStrategy(bt.Strategy):
+    params = (
+        ('fast_period', 12),    # 快速 EMA 周期
+        ('slow_period', 26),    # 慢速 EMA 周期
+        ('signal_period', 9),   # 信号线周期
+    )
+
+    def __init__(self):
+        # 计算 MACD 指标
+        self.macd = bt.indicators.MACD(
+            self.data.close,
+            period_me1=self.params.fast_period,
+            period_me2=self.params.slow_period,
+            period_signal=self.params.signal_period
+        )
+        
+        # 记录交易信号
+        self.crossover = bt.indicators.CrossOver(self.macd.macd, self.macd.signal)
+
+    def next(self):
+        if not self.position:
+            if self.crossover > 0:  # MACD 上穿信号线（金叉）
+                self.buy()  # 买入
+        else:
+            if self.crossover < 0:  # MACD 下穿信号线（死叉）
+                self.sell()  # 卖出
+
+
 # ----------------------
 # 4. 主程序
 # ----------------------
@@ -96,7 +128,9 @@ if __name__ == '__main__':
     cerebro.adddata(datafeed)
     
     # 添加策略
-    cerebro.addstrategy(SMAStrategy)
+    # cerebro.addstrategy(SMAStrategy)
+    cerebro.addstrategy(MACDStrategy)    
+    
     
     # 设置初始资金和手续费
     cerebro.broker.setcash(100000.0)
