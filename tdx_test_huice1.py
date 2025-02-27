@@ -15,7 +15,8 @@ def get_pytdx_data(symbol, market):
     api = TdxHq_API()
     try:
         # 连接通达信服务器
-        if not api.connect('113.105.73.88', 7709):
+        # 查ip：https://www.cnblogs.com/BeyondTechnology/p/18456471
+        if not api.connect('124.71.187.122', 7709):
             raise ConnectionError("无法连接服务器")
         
         # 获取日线数据（最多 800 条）
